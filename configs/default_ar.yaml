@@ -1,0 +1,31 @@
+country: AR
+frequency_hz: 50
+
+# BT Argentina típica: 380/220 V - 50 Hz
+low_voltage:
+  vn_kv_net: 0.38     # valor para buses en pandapower (base LL)
+  vn_kv_ll: 0.38      # tensión línea-línea (3Φ)
+  vn_kv_ln: 0.22      # tensión línea-neutro (1Φ)
+
+defaults:
+  sn_mva: 1.0
+
+  cos_phi:
+    motor: 0.85
+    resistive: 1.00
+    hvac: 0.90
+    lighting: 0.95
+
+  load_type: motor
+
+  # Para crear líneas en pandapower: std_type debe existir en pandapower
+  # (puede ajustarse luego a tipos propios / parametrizados)
+  line_std_type: "NAYY 4x50 SE"
+
+  # Resistencia de switch bus-bus (si se usa >0 crea rama; si 0 "funde" buses en PF)
+  switch_z_ohm: 0.0
+
+aea_limits:
+  voltage_drop_pu:
+    lighting: 0.03
+    power: 0.05

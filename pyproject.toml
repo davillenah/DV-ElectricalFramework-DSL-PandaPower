@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "elecboard"
+version = "0.1.0"
+description = "DSL para tableros eléctricos BT/MT con backend pandapower (config-driven)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandapower>=2.10",
+  "PyYAML>=6.0",
+  "numpy>=1.23",
+  "pandas>=1.5"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
